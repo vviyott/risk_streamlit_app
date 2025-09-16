@@ -1,14 +1,5 @@
 # Risk Killer: 중소 식품기업의 미국 진출을 지원하는 AI 서비스
 
-![썸네일](./Risk_Killer.png)
-[[프로젝트 발표자료]](./Risk_killer.pdf)
-
-
-🔗 Live Demo: https://riskstremlaitapp.streamlit.app/
-
-
-# Risk Killer — K-Food의 미국 진출을 돕는 FDA 규제·리콜 분석 AI (Streamlit)
-
 [![Watch on YouTube](https://img.shields.io/badge/YouTube-FF0000?logo=youtube&logoColor=white)](https://youtu.be/VIDEO_ID)
 [![Streamlit App](https://img.shields.io/badge/Streamlit-App-green)](https://YOUR-APP-URL)
 [![PDF](https://img.shields.io/badge/Slides-PDF-blue)](./Risk_killer.pdf)
