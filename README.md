@@ -9,6 +9,7 @@
     <img src="./Risk_Killer.png" width="900" alt="Risk Killer 발표 썸네일 (클릭하면 PDF)">
   </a>
 </p>
+> Risk Killer는 일반 LLM에 법규/리콜 전문 데이터를 결합해 근거 링크와 수치 집계가 포함된 답변을 제공합니다.
 
 ### 📋 프로젝트 개요
 
@@ -17,7 +18,7 @@
 - **팀 구성**: 4인
 - **수행 역할(황세영)**: eCFR/FDA 크롤링, ChromaDB 파이프라인 구축, UI설계, Streamlit 및 클라우드 배포
 
-> Risk Killer는 일반 LLM에 법규/리콜 전문 데이터를 결합해 근거 링크와 수치 집계가 포함된 답변을 제공합니다.
+
 
 
 ### 🏗️ 시스템 아키텍처
