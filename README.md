@@ -110,72 +110,32 @@ risk_streamlit_app/
 
 
 ## 🧰 주요 기술
-
 <div align="left">
 
-<!-- 1) 배지 모음 (필요 없는 건 지워도 돼요) -->
-  
-![Python](https://img.shields.io/badge/Python-3.11-3776AB?logo=python&logoColor=white)
-![Streamlit](https://img.shields.io/badge/Streamlit-Cloud-FF4B4B?logo=streamlit&logoColor=white)
-![ChromaDB](https://img.shields.io/badge/ChromaDB-Vector%20Store-3E77FF)
-![OpenAI%20API](https://img.shields.io/badge/OpenAI-API-412991?logo=openai&logoColor=white)
-![LangGraph](https://img.shields.io/badge/LangGraph-Orchestration-111111)
-![SQLite](https://img.shields.io/badge/SQLite-DB-003B57?logo=sqlite&logoColor=white)
-![pandas](https://img.shields.io/badge/pandas-Dataframe-150458?logo=pandas&logoColor=white)
-![Plotly](https://img.shields.io/badge/Plotly-Interactive%20Charts-3F4F75?logo=plotly&logoColor=white)
-![Selenium](https://img.shields.io/badge/Selenium-Web%20Chart%20Capture-43B02A?logo=selenium&logoColor=white)
-![Google%20Drive](https://img.shields.io/badge/Google%20Drive-Integration-4285F4?logo=googledrive&logoColor=white)
+<img src="https://img.shields.io/badge/Python-3.11-3776AB?style=for-the-badge&logo=python&logoColor=white"/>
+<img src="https://img.shields.io/badge/Streamlit-App-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white"/>
+<img src="https://img.shields.io/badge/ChromaDB-Vector%20Store-3E77FF?style=for-the-badge"/>
+<img src="https://img.shields.io/badge/OpenAI-API-5E5E5E?style=for-the-badge&logo=openai&logoColor=white"/>
+<img src="https://img.shields.io/badge/LangGraph-Orchestration-4B5563?style=for-the-badge"/>
+<img src="https://img.shields.io/badge/SQLite-DB-003B57?style=for-the-badge&logo=sqlite&logoColor=white"/>
+<br/>
+<img src="https://img.shields.io/badge/pandas-Dataframe-150458?style=for-the-badge&logo=pandas&logoColor=white"/>
+<img src="https://img.shields.io/badge/Plotly-Interactive%20Charts-3F4F75?style=for-the-badge&logo=plotly&logoColor=white"/>
+<img src="https://img.shields.io/badge/Selenium-Web%20Chart%20Capture-43B02A?style=for-the-badge&logo=selenium&logoColor=white"/>
+<img src="https://img.shields.io/badge/Google%20Drive-Integration-4285F4?style=for-the-badge&logo=googledrive&logoColor=white"/>
 
 </div>
+
 
 ## 🖥️ 개발 환경
-
 <div align="left">
 
-![Windows](https://img.shields.io/badge/Windows-11-0078D6?logo=windows&logoColor=white)
-![VS%20Code](https://img.shields.io/badge/VS%20Code-Editor-007ACC?logo=visualstudiocode&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3.11-3776AB?logo=python&logoColor=white)
-![Streamlit%20Cloud](https://img.shields.io/badge/Streamlit-Cloud%20(Deploy)-FF4B4B?logo=streamlit&logoColor=white)
-![ChromeDriver](https://img.shields.io/badge/ChromeDriver-Automation-4285F4?logo=googlechrome&logoColor=white)
-![Tableau%20Public](https://img.shields.io/badge/Tableau-Public-005571?logo=tableau&logoColor=white)
-
-</div>
-
-
-
-## 🔧 Tech Stacks
-<div align="left">
-
-<!-- 1줄 -->
-<img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white"/>
-<img src="https://img.shields.io/badge/R-276DC3?style=for-the-badge&logo=r&logoColor=white"/>
-<img src="https://img.shields.io/badge/RShiny-75AADB?style=for-the-badge&logo=r&logoColor=white"/>
-<img src="https://img.shields.io/badge/Oracle-F80000?style=for-the-badge&logo=oracle&logoColor=white"/>
-<img src="https://img.shields.io/badge/Keras-D00000?style=for-the-badge&logo=keras&logoColor=white"/>
-<img src="https://img.shields.io/badge/Matplotlib-ffffff?style=for-the-badge&logo=plotly&logoColor=black"/>
+<img src="https://img.shields.io/badge/Windows-11-0078D6?style=for-the-badge&logo=windows&logoColor=white"/>
+<img src="https://img.shields.io/badge/VS%20Code-Editor-007ACC?style=for-the-badge&logo=visualstudiocode&logoColor=white"/>
+<img src="https://img.shields.io/badge/Python-3.11-3776AB?style=for-the-badge&logo=python&logoColor=white"/>
+<img src="https://img.shields.io/badge/Streamlit-Cloud%20(Deploy)-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white"/>
 <br/>
+<img src="https://img.shields.io/badge/ChromeDriver-Automation-4285F4?style=for-the-badge&logo=googlechrome&logoColor=white"/>
+<img src="https://img.shields.io/badge/Tableau-Public-005571?style=for-the-badge&logo=tableau&logoColor=white"/>
 
-<!-- 2줄 -->
-<img src="https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white"/>
-<img src="https://img.shields.io/badge/pandas-150458?style=for-the-badge&logo=pandas&logoColor=white"/>
-<img src="https://img.shields.io/badge/Plotly-3F4F75?style=for-the-badge&logo=plotly&logoColor=white"/>
-<img src="https://img.shields.io/badge/scikit--learn-F7931E?style=for-the-badge&logo=scikitlearn&logoColor=white"/>
-<img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white"/>
-<img src="https://img.shields.io/badge/SciPy-8CAAE6?style=for-the-badge&logo=scipy&logoColor=white"/>
-<br/>
-
-<!-- 3줄 -->
-<img src="https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white"/>
-<img src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black"/>
-<img src="https://img.shields.io/badge/MariaDB-003545?style=for-the-badge&logo=mariadb&logoColor=white"/>
-<img src="https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white"/>
-<img src="https://img.shields.io/badge/OpenCV-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white"/>
-<img src="https://img.shields.io/badge/Jupyter-F37626?style=for-the-badge&logo=jupyter&logoColor=white"/>
-<br/>
-
-<!-- 4줄 -->
-<img src="https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=notion&logoColor=white"/>
-<img src="https://img.shields.io/badge/Tableau-1F72FF?style=for-the-badge&logo=tableau&logoColor=white"/>
-<img src="https://img.shields.io/badge/Hadoop-66CCFF?style=for-the-badge&logo=apachehadoop&logoColor=black"/>
-<img src="https://img.shields.io/badge/YOLO-000000?style=for-the-badge&logoColor=white&label=YOLO"/>
 </div>
