@@ -27,7 +27,7 @@
 <p align="left"><img src="architecture.png" width="700" alt="Risk Killer Architecture"></p>
 
 
-주요 수행 과정
+### 주요 수행 과정
 1) 문제 정의
 
 중소 식품기업이 미국 진출 시 규제 적합성(성분·표시·첨가물·알레르겐)과 리콜 리스크를 사전에 점검하기 어려움.
@@ -91,3 +91,6 @@ risk_streamlit_app/
 ├── requirements.txt
 ├── packages.txt
 └── guide.png
+```
+
+### 환경
