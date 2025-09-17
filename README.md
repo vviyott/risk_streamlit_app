@@ -21,7 +21,7 @@
 
 
 ### 🏗️ 시스템 아키텍처
-<p align="center"><img src="docs/architecture.png" width="1100" alt="Risk Killer Architecture"></p>
+<p align="center"><img src="architecture.png" width="900" alt="Risk Killer Architecture"></p>
 ---
 
 ## Quickstart
