@@ -4,7 +4,7 @@
 [![Streamlit App](https://img.shields.io/badge/Streamlit-App-green)](https://riskstremlaitapp.streamlit.app/)
 [![PDF](https://img.shields.io/badge/Slides-PDF-blue)](./Risk_killer.pdf)
 
-<p align="center">
+<p align="left">
   <a href="./Risk_killer.pdf">
     <img src="./Risk_Killer.png" width="900" alt="Risk Killer 발표 썸네일 (클릭하면 PDF)">
   </a>
@@ -22,7 +22,7 @@
 
 ### 🏗️ 시스템 아키텍처
 
-<p align="center"><img src="architecture.png" width="900" alt="Risk Killer Architecture"></p>
+<p align="left"><img src="architecture.png" width="900" alt="Risk Killer Architecture"></p>
 
 
 주요 수행 과정
