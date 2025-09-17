@@ -61,18 +61,31 @@ Streamlit UI로 분석–증거–요약 보고까지 단일 화면에서 수행
 RAG로 할루시네이션을 줄였으나 모델 한계에 따른 오답 가능.
 
 현재 식품 분야 중심(확장 설계는 가능).
-## Quickstart
+## 프로젝트 구조
 
 ```bash
-# 1) 클론 및 진입
-git clone https://github.com/vviyott/risk_streamlit_app.git
-cd risk_streamlit_app
-
-# 2) 가상환경 & 설치 (Windows 예시)
-python -m venv .venv && .\.venv\Scripts\activate
-pip install -r requirements.txt
-
-# 3) 환경변수(예: OpenAI 키) 설정 후 실행
-# macOS/Linux: export OPENAI_API_KEY=...
-# Windows(PowerShell): $env:OPENAI_API_KEY="..."
-streamlit run main.py
+risk_streamlit_app/
+├── main.py                  # streamlit 엔트리
+├── components/              # 탭 기반 UI모듈
+│   ├── __init__.py    
+│   ├── tab_tableau.py       #
+│   ├── tab_news.py
+│   ├── tab_regulation.py
+│   ├── tab_recall.py
+│   └── tab_export.py
+├── utils/
+│   ├── data_loader.py
+│   ├── chat_regulation.py
+│   ├── c.py
+│   ├── chat_common_functions.py
+│   ├── agent_recall.py
+│   ├── function_calling_system.py
+│   ├── recall_prompts.py
+│   └── chart_downloader.py
+├── data/
+│   ├── chroma_db/         # 규제 벡터DB
+│   ├── chroma_db_recall/  # 리콜 벡터DB
+│   └── fda_recalls.db
+├── requirements.txt
+├── packages.txt
+└── guide.png
