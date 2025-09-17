@@ -78,7 +78,7 @@ RAG로 할루시네이션을 줄였으나 모델 한계에 따른 오답 가능.
 </details>
 
 
-## 🗂️ 프로젝트 구조
+## 🗂️ 모듈 구조
 
 ```bash
 risk_streamlit_app/
