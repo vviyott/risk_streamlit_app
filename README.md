@@ -34,7 +34,7 @@
 ## 📌 주요 수행 과정
 
 <details>
-<summary><b>1) 문제 정의</b></summary>
+<summary><b> 문제 정의</b></summary>
 
 중소 식품기업이 미국 진출 시 규제 적합성(성분·표시·첨가물·알레르겐)과 리콜 리스크를 사전에 점검하기 어려움.
 
@@ -42,7 +42,7 @@
 </details>
 
 <details>
-<summary><b>2) 데이터 수집 및 전처리</b></summary>
+<summary><b> 데이터 수집 및 전처리</b></summary>
 
 크롤링: eCFR Title 21 최근 변경(Chapter 1 / Subchapter A·B·L)과 FDA 리콜 페이지.
 
@@ -54,7 +54,7 @@
 </details>
 
 <details>
-<summary><b>3) 기대효과</b></summary>
+<summary><b> 기대효과</b></summary>
 
 규정·가이던스·리콜 근거 인용형 답변으로 의사결정 신뢰성 향상.
 
@@ -66,7 +66,7 @@ Streamlit UI로 분석–증거–요약 보고까지 단일 화면에서 수행
 </details>
 
 <details>
-<summary><b>4) 한계점</b></summary>
+<summary><b> 한계점</b></summary>
 
 법률 자문이 아닌 보조 도구로, 최종 준수 판단은 전문가 검토 필요.
 
