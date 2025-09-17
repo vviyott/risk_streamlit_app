@@ -85,19 +85,19 @@ risk_streamlit_app/
 ├── main.py                  # streamlit 엔트리
 ├── components/              # 탭 기반 UI모듈
 │   ├── __init__.py    
-│   ├── tab_tableau.py       #
-│   ├── tab_news.py
-│   ├── tab_regulation.py
-│   ├── tab_recall.py
-│   └── tab_export.py
+│   ├── tab_tableau.py       # 시장 동향
+│   ├── tab_news.py          # 식품 뉴스
+│   ├── tab_regulation.py    # FDA 규제 관련 챗봇
+│   ├── tab_recall.py        # FDA 리콜사례 챗
+│   └── tab_export.py        # 기획안 요약 도우미
 ├── utils/
-│   ├── data_loader.py
-│   ├── chat_regulation.py
-│   ├── c.py
-│   ├── chat_common_functions.py
-│   ├── agent_recall.py
-│   ├── function_calling_system.py
-│   ├── recall_prompts.py
+│   ├── data_loader.py              # 구글 드라이브와의 연동
+│   ├── chat_regulation.py          # 규제 QA 파이프라인
+│   ├── c.py                        # eCFR Title 21의 최근 변경 사항 수집·정제·번역·요약
+│   ├── chat_common_functions.py    # 챗봇의 공통 기능 모듈
+│   ├── agent_recall.py             # 리콜 Q\&A용 에이전트 컨트롤러
+│   ├── function_calling_system.py  # Function Calling 엔진
+│   ├── recall_prompts.py           # 프롬프트 템플릿 묶음
 │   └── chart_downloader.py
 ├── data/
 │   ├── chroma_db/         # 규제 벡터DB
