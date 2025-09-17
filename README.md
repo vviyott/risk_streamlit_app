@@ -1,16 +1,16 @@
-<h1 align="center">Risk Killer: 중소 식품기업의 미국 진출을 지원하는 AI 서비스</h1>
+<h1 align="left">Risk Killer: 중소 식품기업의 미국 진출을 지원하는 AI 서비스</h1>
 
-<p align="center">
+<p align="left">
   <a href="./Risk_killer.pdf">
     <img src="./Risk_Killer.png" width="900" alt="Risk Killer 발표 썸네일 (클릭하면 PDF)">
   </a>
 </p>
 
-<p align="center">
+<p align="left">
   <em>Risk Killer는 일반 LLM에 FDA 법규/리콜 데이터를 결합해 근거 링크와 수치 집계가 포함된 답변을 제공합니다.</em>
 </p>
 
-<div align="center">
+<div align="left">
   
 [![Watch on YouTube](https://img.shields.io/badge/YouTube-FF0000?logo=youtube&logoColor=white)](https://youtu.be/fcc8h7o8pXs)
 [![Streamlit App](https://img.shields.io/badge/Streamlit-App-green)](https://riskstremlaitapp.streamlit.app/)
