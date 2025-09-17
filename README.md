@@ -22,7 +22,7 @@
 
 ### 🏗️ 시스템 아키텍처
 
-<p align="left"><img src="architecture.png" width="900" alt="Risk Killer Architecture"></p>
+<p align="left"><img src="architecture.png" width="700" alt="Risk Killer Architecture"></p>
 
 
 주요 수행 과정
