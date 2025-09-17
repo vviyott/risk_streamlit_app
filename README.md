@@ -111,7 +111,7 @@ risk_streamlit_app/
 
 ## 🧰 주요 기술
 
-<div align="center">
+<div align="left">
 
 <!-- 1) 배지 모음 (필요 없는 건 지워도 돼요) -->
   
@@ -128,27 +128,9 @@ risk_streamlit_app/
 
 </div>
 
-<details>
-<summary><b>목록 보기</b></summary>
-
-- Python  
-- Streamlit  
-- ChromaDB  
-- OpenAI API  
-- LangGraph  
-- SQLite  
-- pandas  
-- Plotly  
-- Selenium(웹 차트 캡처)  
-- Google Drive 연동  
-
-</details>
-
----
-
 ## 🖥️ 개발 환경
 
-<div align="center">
+<div align="left">
 
 ![Windows](https://img.shields.io/badge/Windows-11-0078D6?logo=windows&logoColor=white)
 ![VS%20Code](https://img.shields.io/badge/VS%20Code-Editor-007ACC?logo=visualstudiocode&logoColor=white)
@@ -158,16 +140,3 @@ risk_streamlit_app/
 ![Tableau%20Public](https://img.shields.io/badge/Tableau-Public-005571?logo=tableau&logoColor=white)
 
 </div>
-
-<details>
-<summary><b>목록 보기</b></summary>
-
-- Windows 11  
-- VS Code  
-- Python 3.11  
-- Streamlit Cloud(배포)  
-- ChromeDriver  
-- Tableau Public(외부 차트 캡처)  
-
-</details>
-
