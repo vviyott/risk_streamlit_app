@@ -118,7 +118,6 @@ risk_streamlit_app/
 <img src="https://img.shields.io/badge/OpenAI-API-5E5E5E?style=for-the-badge&logo=openai&logoColor=white"/>
 <img src="https://img.shields.io/badge/LangGraph-Orchestration-4B5563?style=for-the-badge"/>
 <img src="https://img.shields.io/badge/SQLite-DB-003B57?style=for-the-badge&logo=sqlite&logoColor=white"/>
-<br/>
 <img src="https://img.shields.io/badge/pandas-Dataframe-150458?style=for-the-badge&logo=pandas&logoColor=white"/>
 <img src="https://img.shields.io/badge/Plotly-Interactive%20Charts-3F4F75?style=for-the-badge&logo=plotly&logoColor=white"/>
 <img src="https://img.shields.io/badge/Selenium-Web%20Chart%20Capture-43B02A?style=for-the-badge&logo=selenium&logoColor=white"/>
@@ -134,7 +133,6 @@ risk_streamlit_app/
 <img src="https://img.shields.io/badge/VS%20Code-Editor-007ACC?style=for-the-badge&logo=visualstudiocode&logoColor=white"/>
 <img src="https://img.shields.io/badge/Python-3.11-3776AB?style=for-the-badge&logo=python&logoColor=white"/>
 <img src="https://img.shields.io/badge/Streamlit-Cloud%20(Deploy)-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white"/>
-<br/>
 <img src="https://img.shields.io/badge/ChromeDriver-Automation-4285F4?style=for-the-badge&logo=googlechrome&logoColor=white"/>
 <img src="https://img.shields.io/badge/Tableau-Public-005571?style=for-the-badge&logo=tableau&logoColor=white"/>
 
