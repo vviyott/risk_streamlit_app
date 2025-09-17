@@ -106,3 +106,68 @@ risk_streamlit_app/
 ├── requirements.txt
 ├── packages.txt
 └── guide.png
+```
+
+
+## 🧰 주요 기술
+
+<div align="center">
+
+<!-- 1) 배지 모음 (필요 없는 건 지워도 돼요) -->
+  
+![Python](https://img.shields.io/badge/Python-3.11-3776AB?logo=python&logoColor=white)
+![Streamlit](https://img.shields.io/badge/Streamlit-Cloud-FF4B4B?logo=streamlit&logoColor=white)
+![ChromaDB](https://img.shields.io/badge/ChromaDB-Vector%20Store-3E77FF)
+![OpenAI%20API](https://img.shields.io/badge/OpenAI-API-412991?logo=openai&logoColor=white)
+![LangGraph](https://img.shields.io/badge/LangGraph-Orchestration-111111)
+![SQLite](https://img.shields.io/badge/SQLite-DB-003B57?logo=sqlite&logoColor=white)
+![pandas](https://img.shields.io/badge/pandas-Dataframe-150458?logo=pandas&logoColor=white)
+![Plotly](https://img.shields.io/badge/Plotly-Interactive%20Charts-3F4F75?logo=plotly&logoColor=white)
+![Selenium](https://img.shields.io/badge/Selenium-Web%20Chart%20Capture-43B02A?logo=selenium&logoColor=white)
+![Google%20Drive](https://img.shields.io/badge/Google%20Drive-Integration-4285F4?logo=googledrive&logoColor=white)
+
+</div>
+
+<details>
+<summary><b>목록 보기</b></summary>
+
+- Python  
+- Streamlit  
+- ChromaDB  
+- OpenAI API  
+- LangGraph  
+- SQLite  
+- pandas  
+- Plotly  
+- Selenium(웹 차트 캡처)  
+- Google Drive 연동  
+
+</details>
+
+---
+
+## 🖥️ 개발 환경
+
+<div align="center">
+
+![Windows](https://img.shields.io/badge/Windows-11-0078D6?logo=windows&logoColor=white)
+![VS%20Code](https://img.shields.io/badge/VS%20Code-Editor-007ACC?logo=visualstudiocode&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3.11-3776AB?logo=python&logoColor=white)
+![Streamlit%20Cloud](https://img.shields.io/badge/Streamlit-Cloud%20(Deploy)-FF4B4B?logo=streamlit&logoColor=white)
+![ChromeDriver](https://img.shields.io/badge/ChromeDriver-Automation-4285F4?logo=googlechrome&logoColor=white)
+![Tableau%20Public](https://img.shields.io/badge/Tableau-Public-005571?logo=tableau&logoColor=white)
+
+</div>
+
+<details>
+<summary><b>목록 보기</b></summary>
+
+- Windows 11  
+- VS Code  
+- Python 3.11  
+- Streamlit Cloud(배포)  
+- ChromeDriver  
+- Tableau Public(외부 차트 캡처)  
+
+</details>
+
