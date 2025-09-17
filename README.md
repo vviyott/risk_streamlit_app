@@ -21,8 +21,10 @@
 
 
 ### 🏗️ 시스템 아키텍처
+
 <p align="center"><img src="architecture.png" width="900" alt="Risk Killer Architecture"></p>
----
+
+
 주요 수행 과정
 1) 문제 정의
 
