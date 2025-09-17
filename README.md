@@ -33,51 +33,109 @@
 
 ## 📌 주요 수행 과정
 
+## 주요 수행 과정
+
 <details>
-<summary><b> 문제 정의</b></summary>
-   - 중소 식품기업의 미국 진출 시 **규제 적합성(성분·표시·첨가물·알레르겐)** 및 **리콜 리스크**를 선제 점검하기 어려움.
-   - 요구사항: 
-     - 제품 정보 기반 규제 적합성 힌트 제공
-     - 유사 리콜 사례 탐색
-     - **집계 질의**(예: “최근 1년 알레르겐 리콜 Top5”) 응답
-     - **근거 링크/원문 인용** 포함한 신뢰 가능한 답변
+<summary><b>1. 문제 정의</b></summary>
+
+- 중소 식품기업의 미국 진출 시 **규제 적합성(성분·표시·첨가물·알레르겐)** 및 **리콜 리스크**를 선제 점검하기 어려움.
+- 요구사항: 
+  - 제품 정보 기반 규제 적합성 힌트 제공
+  - 유사 리콜 사례 탐색
+  - **집계 질의**(예: “최근 1년 알레르겐 리콜 Top5”) 응답
+  - **근거 링크/원문 인용** 포함한 신뢰 가능한 답변
+
 </details>
 
 <details>
-<summary><b> 데이터 수집 및 전처리</b></summary>
+<summary><b>2. 데이터 수집 및 전처리</b></summary>
 
-크롤링: eCFR Title 21 최근 변경(Chapter 1 / Subchapter A·B·L)과 FDA 리콜 페이지.
+- **크롤링 대상**
+  - eCFR Title 21 최근 변경(Chapter 1 / Subchapter A·B·L)
+  - FDA 리콜 페이지(발표일, 리콜 사유, 회수 범위 등 핵심 메타)
+- **수집 방식**
+  - Playwright 기반 비동기 크롤러로 목록/상세 크롤링
+  - 필요 시 Selenium을 이용해 외부 차트/페이지 캡처 자동화
+- **정규화 스키마**
+  - `document_type`(guidance/regulation/recall)
+  - `category`(additives/allergen/labeling/ecfr/usc 등)
+  - `title`, `url`, `chunks` + 온톨로지(`ont_allergen`, `ont_contaminant`, `ont_recall_reason` 등)
+- **텍스트 가공**
+  - 한글 번역·요약 → 문단 단위 **chunking**
+  - 불필요 태그/공백/표 제거, 날짜·수치 표준화
+- **저장**
+  - **ChromaDB**: chunk 임베딩 + 메타데이터 인덱싱
+  - **SQLite**: 리콜 핵심 메타/집계 친화 필드 분리 저장(카운트·랭킹 질의용)
 
-정규화: document_type(guidance/regulation/recall), category(additives/allergen/labeling/ecfr/usc 등), title/url/chunks와 도메인별 온톨로지(ont_allergen, ont_contaminant, ont_recall_reason 등) 스키마 통합.
-
-벡터화: 한글 번역·요약 텍스트를 문단 단위로 분할하여 ChromaDB에 임베딩 저장, 메타데이터 필터로 조건 검색.
-
-요약·통계 저장: 리콜 핵심 메타와 집계에 적합한 필드를 SQLite에 별도 보관.
 </details>
 
 <details>
-<summary><b> 기대효과</b></summary>
+<summary><b>3. 검색/생성 아키텍처</b></summary>
 
-규정·가이던스·리콜 근거 인용형 답변으로 의사결정 신뢰성 향상.
+- **임베딩**: OpenAI `text-embedding-3-small`로 문단 임베딩
+- **검색**: 시맨틱 검색 + 메타필터(문서유형/카테고리/기간)로 후보 문서 추출
+- **응답 생성**: OpenAI API 기반 생성, **근거 인용(링크/인용문)** 포함
+- **Function Calling**
+  - 집계형 질문(개수/순위/기간)에 대해 SQLite/VectorStore 결과를 함수로 호출 → 표/요약 생성
+- **오케스트레이션(LangGraph)**
+  1) 질의 분류(집계형/설명형/혼합)  
+  2) 라우팅(규제 vs 리콜)  
+  3) 벡터 검색 + 필터  
+  4) 필요 시 함수 호출(집계/랭킹)  
+  5) 출처 인용 정리 → 최종 응답
 
-키워드가 아닌 시멘틱 검색과 조건 필터링으로 탐색 효율화.
-
-Function Calling을 통해 개수/순위/기간별 집계 요청에 즉시 응답.
-
-Streamlit UI로 분석–증거–요약 보고까지 단일 화면에서 수행.
 </details>
 
 <details>
-<summary><b> 한계점</b></summary>
+<summary><b>4. 품질 관리(테스트 시나리오 & 기준)</b></summary>
 
-법률 자문이 아닌 보조 도구로, 최종 준수 판단은 전문가 검토 필요.
+- **정확성(grounding)**: 최종 응답 내 인용 출처가 실제 문서 내용과 일치 *(목표: ___%)*  
+- **회수율(검색)**: 골드 쿼리 셋에서 상위 k 내 관련 문서 포함 *(k=5, 목표: ___%)*  
+- **집계 정확도**: 함수 호출 기반 카운트/랭킹 결과가 수동 집계와 일치 *(허용 오차: 0)*  
+- **응답 시간**: P95 지연 *(목표: ___ s 이하)*  
+- **안전성**: 법률 자문 아님 고지/한계 안내 포함 여부 *(준수율: ___%)*
 
-크롤링/번역 품질과 원문 개정에 따른 시의성 의존.
-
-RAG로 할루시네이션을 줄였으나 모델 한계에 따른 오답 가능.
-
-현재 식품 분야 중심(확장 설계는 가능).
 </details>
+
+<details>
+<summary><b>5. 인터페이스 및 배포</b></summary>
+
+- **Streamlit UI**(탭 구성 예)
+  - 규제 챗봇 / 리콜 챗봇 / 외부 차트(Tableau) / 보고서 내보내기
+- **배포**: Streamlit Cloud  
+- **데이터 연동**: Google Drive에서 대용량 데이터 자동 다운로드 및 압축 해제  
+- **자동화**: Selenium으로 Tableau Public 시각화 캡처 → 리포트 삽입
+
+</details>
+
+<details>
+<summary><b>6. 프로젝트 구조(요약)</b></summary>
+
+- `components/`(탭 모듈), `utils/`(크롤링/검색/함수호출), `data/`(Chroma/SQLite)  
+- 규제/리콜 **단일 Chroma 컬렉션 + 메타 필터** 운영(카테고리/문서유형으로 분기)
+
+</details>
+
+<details>
+<summary><b>7. 기대 효과</b></summary>
+
+- 규정·가이던스·리콜 **근거 인용형** 답변으로 의사결정 신뢰성 향상
+- 키워드가 아닌 **시맨틱 검색+필터**로 탐색 효율 개선
+- **Function Calling**으로 개수/순위/기간 질의를 즉시 집계
+- 단일 화면에서 **분석–증거–요약 보고**까지 수행
+
+</details>
+
+<details>
+<summary><b>8. 한계 및 개선 계획</b></summary>
+
+- 법률 자문이 아닌 **보조 도구**이므로 최종 판단은 전문가 검토 필요
+- 원문 개정/번역 품질에 따른 시의성 이슈 → **변경 감지·재임베딩 파이프라인** 보강 예정
+- 모델 한계로 인한 오답 가능 → **쿼리 재작성/반박-검증 체인** 도입 검토
+- 식품 분야 중심 → 의약/화장품 등 **스키마 확장** 및 멀티도메인 테스트 계획
+
+</details>
+
 
 
 ## 🗂️ 모듈 구조
