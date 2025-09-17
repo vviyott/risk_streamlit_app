@@ -87,36 +87,6 @@
 </details>
 
 <details>
-<summary><b>품질 관리(테스트 시나리오 & 기준)</b></summary>
-
-- **정확성(grounding)**: 최종 응답 내 인용 출처가 실제 문서 내용과 일치 *(목표: ___%)*  
-- **회수율(검색)**: 골드 쿼리 셋에서 상위 k 내 관련 문서 포함 *(k=5, 목표: ___%)*  
-- **집계 정확도**: 함수 호출 기반 카운트/랭킹 결과가 수동 집계와 일치 *(허용 오차: 0)*  
-- **응답 시간**: P95 지연 *(목표: ___ s 이하)*  
-- **안전성**: 법률 자문 아님 고지/한계 안내 포함 여부 *(준수율: ___%)*
-
-</details>
-
-<details>
-<summary><b>인터페이스 및 배포</b></summary>
-
-- **Streamlit UI**(탭 구성 예)
-  - 규제 챗봇 / 리콜 챗봇 / 외부 차트(Tableau) / 보고서 내보내기
-- **배포**: Streamlit Cloud  
-- **데이터 연동**: Google Drive에서 대용량 데이터 자동 다운로드 및 압축 해제  
-- **자동화**: Selenium으로 Tableau Public 시각화 캡처 → 리포트 삽입
-
-</details>
-
-<details>
-<summary><b>프로젝트 구조(요약)</b></summary>
-
-- `components/`(탭 모듈), `utils/`(크롤링/검색/함수호출), `data/`(Chroma/SQLite)  
-- 규제/리콜 **단일 Chroma 컬렉션 + 메타 필터** 운영(카테고리/문서유형으로 분기)
-
-</details>
-
-<details>
 <summary><b>한계 및 개선 계획</b></summary>
 
 - 법률 자문이 아닌 **보조 도구**이므로 최종 판단은 전문가 검토 필요
