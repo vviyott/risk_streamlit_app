@@ -1,8 +1,6 @@
 ## Risk Killer: 중소 식품기업의 미국 진출을 지원하는 AI 서비스
 
-[![Watch on YouTube](https://img.shields.io/badge/YouTube-FF0000?logo=youtube&logoColor=white)](https://youtu.be/fcc8h7o8pXs)
-[![Streamlit App](https://img.shields.io/badge/Streamlit-App-green)](https://riskstremlaitapp.streamlit.app/)
-[![PDF](https://img.shields.io/badge/Slides-PDF-blue)](./Risk_killer.pdf)
+
 
 <p align="left">
   <a href="./Risk_killer.pdf">
@@ -11,7 +9,9 @@
 </p>
 
 > Risk Killer는 일반 LLM에 법규/리콜 전문 데이터를 결합해 근거 링크와 수치 집계가 포함된 답변을 제공합니다.
-
+[![Watch on YouTube](https://img.shields.io/badge/YouTube-FF0000?logo=youtube&logoColor=white)](https://youtu.be/fcc8h7o8pXs)
+[![Streamlit App](https://img.shields.io/badge/Streamlit-App-green)](https://riskstremlaitapp.streamlit.app/)
+[![PDF](https://img.shields.io/badge/Slides-PDF-blue)](./Risk_killer.pdf)
 
 
 ### 📋 프로젝트 개요
