@@ -20,6 +20,8 @@
 > Risk Killer는 일반 LLM에 법규/리콜 전문 데이터를 결합해 근거 링크와 수치 집계가 포함된 답변을 제공합니다.
 
 
+### 🏗️ 시스템 아키텍처
+<p align="center"><img src="docs/architecture.png" width="1100" alt="Risk Killer Architecture"></p>
 ---
 
 ## Quickstart
