@@ -36,7 +36,7 @@
 ## 주요 수행 과정
 
 <details>
-<summary><b>1. 문제 정의</b></summary>
+<summary><b>문제 정의</b></summary>
 
 - 중소 식품기업의 미국 진출 시 **규제 적합성(성분·표시·첨가물·알레르겐)** 및 **리콜 리스크**를 선제 점검하기 어려움.
 - 요구사항: 
@@ -48,7 +48,7 @@
 </details>
 
 <details>
-<summary><b>2. 데이터 수집 및 전처리</b></summary>
+<summary><b>데이터 수집 및 전처리</b></summary>
 
 - **크롤링 대상**
   - eCFR Title 21 최근 변경(Chapter 1 / Subchapter A·B·L)
@@ -70,7 +70,7 @@
 </details>
 
 <details>
-<summary><b>3. 검색/생성 아키텍처</b></summary>
+<summary><b>검색/생성 아키텍처</b></summary>
 
 - **임베딩**: OpenAI `text-embedding-3-small`로 문단 임베딩
 - **검색**: 시맨틱 검색 + 메타필터(문서유형/카테고리/기간)로 후보 문서 추출
@@ -87,7 +87,7 @@
 </details>
 
 <details>
-<summary><b>4. 품질 관리(테스트 시나리오 & 기준)</b></summary>
+<summary><b>품질 관리(테스트 시나리오 & 기준)</b></summary>
 
 - **정확성(grounding)**: 최종 응답 내 인용 출처가 실제 문서 내용과 일치 *(목표: ___%)*  
 - **회수율(검색)**: 골드 쿼리 셋에서 상위 k 내 관련 문서 포함 *(k=5, 목표: ___%)*  
@@ -98,7 +98,7 @@
 </details>
 
 <details>
-<summary><b>5. 인터페이스 및 배포</b></summary>
+<summary><b>인터페이스 및 배포</b></summary>
 
 - **Streamlit UI**(탭 구성 예)
   - 규제 챗봇 / 리콜 챗봇 / 외부 차트(Tableau) / 보고서 내보내기
@@ -109,7 +109,7 @@
 </details>
 
 <details>
-<summary><b>6. 프로젝트 구조(요약)</b></summary>
+<summary><b>프로젝트 구조(요약)</b></summary>
 
 - `components/`(탭 모듈), `utils/`(크롤링/검색/함수호출), `data/`(Chroma/SQLite)  
 - 규제/리콜 **단일 Chroma 컬렉션 + 메타 필터** 운영(카테고리/문서유형으로 분기)
@@ -117,7 +117,7 @@
 </details>
 
 <details>
-<summary><b>7. 기대 효과</b></summary>
+<summary><b>기대 효과</b></summary>
 
 - 규정·가이던스·리콜 **근거 인용형** 답변으로 의사결정 신뢰성 향상
 - 키워드가 아닌 **시맨틱 검색+필터**로 탐색 효율 개선
@@ -127,7 +127,7 @@
 </details>
 
 <details>
-<summary><b>8. 한계 및 개선 계획</b></summary>
+<summary><b>한계 및 개선 계획</b></summary>
 
 - 법률 자문이 아닌 **보조 도구**이므로 최종 판단은 전문가 검토 필요
 - 원문 개정/번역 품질에 따른 시의성 이슈 → **변경 감지·재임베딩 파이프라인** 보강 예정
