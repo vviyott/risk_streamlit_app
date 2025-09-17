@@ -18,7 +18,6 @@
 
 </div>
 
----
 
 ## 📋 프로젝트 개요
 
@@ -27,12 +26,10 @@
 - **팀 구성**: 4인  
 - **수행 역할(황세영)**: eCFR/FDA 크롤링, ChromaDB 파이프라인 구축, UI설계, Streamlit 및 클라우드 배포
 
----
 
 ## 🏗️ 시스템 아키텍처
 <p align="left"><img src="architecture.png" width="700" alt="Risk Killer Architecture"></p>
 
----
 
 ## 📌 주요 수행 과정
 
@@ -80,7 +77,6 @@ RAG로 할루시네이션을 줄였으나 모델 한계에 따른 오답 가능.
 현재 식품 분야 중심(확장 설계는 가능).
 </details>
 
----
 
 ## 🗂️ 프로젝트 구조
 
