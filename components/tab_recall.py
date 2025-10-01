@@ -23,7 +23,7 @@ agent = get_agent()
 @lru_cache(maxsize=1)
 def get_recall_questions():
     return [
-        "지난 달에 새로 발표된 식품 리콜이 있나요?",
+        "소스를 포함한 복합식품에서 리콜된 사례는 어떤 게 있나요?",
         "살모넬라균으로 리콜된 제품 목록을 보여줘.",
         "리콜이 가장 빈번하게 발생하는 식품 3개를 알려줘",
         "작년 대비 올해 리콜 트렌드에 변화가 있나요?"
@@ -229,4 +229,5 @@ def show_recall_chat():
                     handle_user_input(user_input.strip(), session_keys)
                     st.rerun()
         else:
+
             st.info("🔄 실시간 데이터 수집 및 분석 중입니다...")
