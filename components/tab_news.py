@@ -81,7 +81,7 @@ def fetch_full_article_content(url, max_length=200):  # 기사당 200자로 제�
         content = ""
         
         # 방법 1: div.user-snip 시도
-        content_div = soup.select_one("div.user-snip")
+        content_div = soup.select_one("article.article-view-body")
         if content_div:
             # 광고나 관련 기사 링크 제거
             for unwanted in content_div.select('.ad, .related, .link-area, .photo-info'):
@@ -290,4 +290,5 @@ def show_news():
             progress_placeholder.empty()
 
             st.warning("미국 관련 기사를 찾을 수 없습니다.")
+
 
