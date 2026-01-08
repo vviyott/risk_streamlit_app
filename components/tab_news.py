@@ -39,8 +39,9 @@ def fetch_articles_with_keyword(keyword=None, max_pages=5, max_articles=3):
                 continue
 
             title = title_tag.get_text(strip=True)
-            # keyword가 None이 아닐 경우에만 필터링 적용
-            if keyword is not None and keyword not in title:
+            
+            # keyword 필터링 (keyword가 주어진 경우에만)
+            if keyword and keyword not in title:
                 continue
 
             link = "https://www.thinkfood.co.kr" + link_tag["href"]
@@ -167,7 +168,7 @@ def summarize_with_openai(content, openai_api_key):
 
 다음 조건을 반드시 지켜 요약문을 작성하세요:
 
-1. 현재는 2025년입니다. **2025년 이후의 내용만 포함**하고, 2024년 이전의 수치, 사례, 트렌드는 절대 포함하지 마세요.
+1. 현재는 2026년입니다. **2026년 이후의 내용만 포함**하고, 2025년 이전의 수치, 사례, 트렌드는 절대 포함하지 마세요.
 2. **기사에 명시된 내용만 사용**하고, 임의의 추론이나 허구의 수치는 사용하지 마세요.
 3. 문체는 객관적이고 부드럽게, 중립적 톤으로 서술하세요. (~할 수 있다, ~로 보인다 등)
 4. 각각의 항목은 단문 나열이 아니라 **부드러운 연결어와 문장 흐름**으로 구성합니다.
@@ -287,4 +288,5 @@ def show_news():
                     st.markdown(f"- [{article['title']}]({article['link']})", unsafe_allow_html=True)
         else:
             progress_placeholder.empty()
+
             st.warning("미국 관련 기사를 찾을 수 없습니다.")
