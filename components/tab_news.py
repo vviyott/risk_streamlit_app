@@ -30,7 +30,7 @@ def fetch_articles_with_keyword(keyword=None, max_pages=5, max_articles=3):
             if len(results) >= max_articles:
                 return results  # 기사 3개 모이면 바로 반환
 
-            title_tag = article.select_one(".list-titles strong")
+            title_tag = article.select_one(".list-titles a strong")
             link_tag = article.select_one(".list-titles a")
             summary_tag = article.select_one(".line-height-3-2x")
             date_tag = article.select_one(".list-dated")
@@ -290,3 +290,4 @@ def show_news():
             progress_placeholder.empty()
 
             st.warning("미국 관련 기사를 찾을 수 없습니다.")
+
