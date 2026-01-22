@@ -130,7 +130,6 @@ risk_streamlit_app/
 ## 🧰 주요 기술
 <div align="left">
 
-<img src="https://img.shields.io/badge/Python-3.11-3776AB?style=for-the-badge&logo=python&logoColor=white"/>
 <img src="https://img.shields.io/badge/Streamlit-App-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white"/>
 <img src="https://img.shields.io/badge/ChromaDB-Vector%20Store-3E77FF?style=for-the-badge"/>
 <img src="https://img.shields.io/badge/OpenAI-API-5E5E5E?style=for-the-badge&logo=openai&logoColor=white"/>
