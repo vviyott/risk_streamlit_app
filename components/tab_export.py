@@ -117,7 +117,7 @@ def auto_download_all_tableau_charts():
     
     for filename, config in chart_configs.items():
         try:
-            st.write(f"⏬ {config['title']} 다운로드 중...")
+            # st.write(f"⏬ {config['title']} 다운로드 중...")
             
             # 이미지 다운로드
             headers = {
@@ -782,4 +782,5 @@ def create_excel_with_tableau():
     """레거시 함수 - 호환성을 위해 유지"""
 
     return create_smart_excel_report()
+
 
