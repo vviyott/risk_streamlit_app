@@ -1,4 +1,4 @@
-# components/tab_export.py (v0)
+# components/tab_export.py
 import streamlit as st
 from datetime import datetime
 import json
@@ -140,7 +140,7 @@ def auto_download_all_tableau_charts():
                 
                 if os.path.exists(file_path) and os.path.getsize(file_path) > 0:
                     success_count += 1
-                    st.success(f"✅ {filename} 저장 완료")
+                    # st.success(f"✅ {filename} 저장 완료")
                 else:
                     failed_downloads.append(filename)
                     st.error(f"❌ {filename} 저장 실패")
@@ -782,5 +782,3 @@ def create_excel_with_tableau():
     """레거시 함수 - 호환성을 위해 유지"""
 
     return create_smart_excel_report()
-
-
