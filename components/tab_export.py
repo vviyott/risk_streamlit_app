@@ -171,7 +171,7 @@ def render_auto_download_section():
         st.info(f"📊 현재 저장된 차트: {existing_count}/4개")
     
     # 자동 다운로드 버튼
-    if st.button("🚀 시장동향 그래프 자동 다운로드", use_container_width=True):
+    if st.button("🚀 시장동향 TAB 그래프 자동 다운로드", use_container_width=True):
         with st.spinner("📥 모든 차트를 자동으로 다운로드하는 중..."):
             success_count, failed_downloads = auto_download_all_tableau_charts()
             
@@ -782,3 +782,4 @@ def create_excel_with_tableau():
     """레거시 함수 - 호환성을 위해 유지"""
 
     return create_smart_excel_report()
+
