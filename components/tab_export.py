@@ -1,4 +1,4 @@
-# components/tab_export.py
+# components/tab_export.py (v0)
 import streamlit as st
 from datetime import datetime
 import json
@@ -49,7 +49,7 @@ def show_export_helper():
 
     - 챗봇 질의응답 시 설정한 프로젝트명 선택  
     - 제품 정보, 제안 의도 입력 시 EXCEL 파일 생성 기능 제공  
-    - "시장동향" TAB의 그래프, 챗봇 질의응답 데이터 함께 출력 가능
+    - TAB 1의 그래프, 챗봇 질의응답 데이터 함께 출력 가능
     """)
     
     # 세션 상태 초기화
@@ -171,7 +171,7 @@ def render_auto_download_section():
         st.info(f"📊 현재 저장된 차트: {existing_count}/4개")
     
     # 자동 다운로드 버튼
-    if st.button("🚀 "시장동향" Tab의 차트 이미지 자동 다운로드", use_container_width=True):
+    if st.button("🚀 Tab 1 차트 이미지 자동 다운로드", use_container_width=True):
         with st.spinner("📥 모든 차트를 자동으로 다운로드하는 중..."):
             success_count, failed_downloads = auto_download_all_tableau_charts()
             
@@ -751,7 +751,7 @@ def add_single_excel_button():
                         st.success(f"✅ Excel 생성 완료! ({chart_count}개 차트 이미지 포함)")
                     else:
                         st.success("✅ Excel 생성 완료! (텍스트 기반)")
-                        st.info("💡 차트 이미지를 포함하려면 먼저 'Tableau 차트 다운로드'를 실행하세요.")
+                        st.info("💡 차트 이미지를 포함하려면 먼저 '시장동향TAB 차트 다운로드'를 실행하세요.")
                     
                     # 다운로드 버튼
                     with open(result, "rb") as file:
