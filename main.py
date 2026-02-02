@@ -1,12 +1,11 @@
 # main.py
 import sys
 
-import platform
-import streamlit as st
+# import platform
 
-st.sidebar.write("python:", sys.version)
-st.sidebar.write("executable:", sys.executable)
-st.sidebar.write("platform:", platform.platform())
+# st.sidebar.write("python:", sys.version)
+# st.sidebar.write("executable:", sys.executable)
+# st.sidebar.write("platform:", platform.platform())
 
 # --- SQLite 버전 문제 해결 (ChromaDB용) ---
 try:
@@ -168,3 +167,4 @@ elif st.session_state.active_tab == 'summary':
     from components.tab_export import show_export_helper
 
     show_export_helper()
+
