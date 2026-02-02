@@ -13,7 +13,8 @@
 <div align="left">
   
 [![Watch on YouTube](https://img.shields.io/badge/YouTube-FF0000?logo=youtube&logoColor=white)](https://youtu.be/fcc8h7o8pXs)
-[![Streamlit App](https://img.shields.io/badge/Streamlit-App-green)](https://riskstremlaitapp.streamlit.app/)
+[![Streamlit App](https://riskkiller.streamlit.app/)](https://riskkiller.streamlit.app/)
+https://riskkiller.streamlit.app/
 [![PDF](https://img.shields.io/badge/Slides-PDF-blue)](./Risk_killer.pdf)
 
 </div>
