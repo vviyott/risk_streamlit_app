@@ -7,7 +7,7 @@ langchain-core>=0.2.0,<0.3.0
 langchain-community>=0.2.0,<0.3.0
 langchain-openai>=0.2.0,<0.3.0
 langgraph>=0.1.0,<0.2.0
-langchain-teddynote>=0.0.24,<1.0.0
+# langchain-teddynote>=0.0.24,<1.0.0
 
 # Vector database
 chromadb>=0.4.0,<2.0.0
@@ -54,6 +54,7 @@ pysqlite3-binary>=0.5.0
 # Note: 위의 패키지들이 대부분 커버하므로 playwright만 추가하면 됨
 
 # chromadb, openai, python-dotenv는 이미 위에 포함됨
+
 
 
 
