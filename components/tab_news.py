@@ -26,7 +26,7 @@ def fetch_articles_with_keyword(keyword=None, max_pages=5, max_articles=3):
 
     for page in range(1, max_pages + 1):
         url = f"{base_url}&page={page}"
-        ## 26/2/3
+        
         # 디버깅 출력 추가
         print(f"🔍 페이지 {page} 크롤링 시도: {url}")
         
@@ -53,6 +53,8 @@ def fetch_articles_with_keyword(keyword=None, max_pages=5, max_articles=3):
 
             title_tag = article.select_one(".list-titles a strong")
             link_tag = article.select_one(".list-titles a")
+            summary_tag = article.select_one(".line-height-3-2x")  # ✅ 이 줄이 빠졌어요!
+            date_tag = article.select_one(".list-dated")  # ✅ 이 줄도 빠졌어요!
             
             if not title_tag or not link_tag:
                 continue
@@ -65,7 +67,6 @@ def fetch_articles_with_keyword(keyword=None, max_pages=5, max_articles=3):
                 continue
             
             print(f"✅ 기사 추가: {title}")
-        ## 26/2/3
 
             link = "https://www.thinkfood.co.kr" + link_tag["href"]
             summary = (summary_tag.get_text(strip=True)[:200] + "...") if summary_tag else ""
@@ -74,14 +75,14 @@ def fetch_articles_with_keyword(keyword=None, max_pages=5, max_articles=3):
             # 기사 본문에서 이미지 가져오기
             img_url = None
             try:
-                res_detail = requests.get(link, headers=HEADERS, timeout=10)  # 26/2/3 >> 수정
+                res_detail = requests.get(link, headers=HEADERS, timeout=10)
                 soup_detail = BeautifulSoup(res_detail.text, "html.parser")
                 img_tag = soup_detail.select_one("figure img")
                 if img_tag and "src" in img_tag.attrs:
                     src = img_tag["src"]
                     img_url = src if src.startswith("http") else "https://cdn.thinkfood.co.kr" + src
             except:
-                pass # 오류 무시하고 이미지 없음으로 처리
+                pass
 
             results.append({
                 "title": title,
@@ -313,6 +314,7 @@ def show_news():
             progress_placeholder.empty()
 
             st.warning("미국 관련 기사를 찾을 수 없습니다.")
+
 
 
 
