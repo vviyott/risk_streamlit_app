@@ -1,4 +1,4 @@
-# components/tab_news.py
+# components/tab_news.py (v0)
 import streamlit as st
 import requests
 from bs4 import BeautifulSoup
@@ -12,13 +12,6 @@ from datetime import datetime
 # .env 파일에서 환경변수 로드
 load_dotenv()
 
-# 헤더 설정 추가 (26/2/3)
-HEADERS = {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
-    'Accept-Language': 'ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7',
-}
-
 def fetch_articles_with_keyword(keyword=None, max_pages=5, max_articles=3):
     """특정 키워드가 포함된 최신 기사들을 크롤링하여 제목, 요약, 날짜, 링크, 이미지 정보를 담아 리스트로 반환하는 함수"""
     base_url = "https://www.thinkfood.co.kr/news/articleList.html?sc_section_code=S1N2&view_type=sm"
@@ -26,47 +19,29 @@ def fetch_articles_with_keyword(keyword=None, max_pages=5, max_articles=3):
 
     for page in range(1, max_pages + 1):
         url = f"{base_url}&page={page}"
-        
-        # 디버깅 출력 추가
-        print(f"🔍 페이지 {page} 크롤링 시도: {url}")
-        
-        try:
-            res = requests.get(url, headers=HEADERS, timeout=10)
-            print(f"✅ 응답 코드: {res.status_code}")
-            
-            if res.status_code != 200:
-                print(f"❌ 페이지 {page} 실패: status_code={res.status_code}")
-                continue
-        except Exception as e:
-            print(f"❌ 페이지 {page} 크롤링 에러: {e}")
+        res = requests.get(url)
+        if res.status_code != 200:
             continue
 
         soup = BeautifulSoup(res.text, "html.parser")
         articles = soup.select(".list-block")
-        
-        print(f"📰 페이지 {page}에서 발견한 기사 수: {len(articles)}")
 
         for article in articles:
             if len(results) >= max_articles:
-                print(f"✅ 목표 기사 수({max_articles})에 도달!")
-                return results
+                return results  # 기사 3개 모이면 바로 반환
 
-            title_tag = article.select_one(".list-titles a strong")
+            title_tag = article.select_one(".list-titles strong")
             link_tag = article.select_one(".list-titles a")
-            summary_tag = article.select_one(".line-height-3-2x")  # ✅ 이 줄이 빠졌어요!
-            date_tag = article.select_one(".list-dated")  # ✅ 이 줄도 빠졌어요!
-            
+            summary_tag = article.select_one(".line-height-3-2x")
+            date_tag = article.select_one(".list-dated")
+
             if not title_tag or not link_tag:
                 continue
 
             title = title_tag.get_text(strip=True)
-            
-            # keyword 필터링
-            if keyword and keyword not in title:
-                print(f"⏭️ 키워드 '{keyword}' 불일치로 스킵: {title}")
+            # keyword가 None이 아닐 경우에만 필터링 적용
+            if keyword is not None and keyword not in title:
                 continue
-            
-            print(f"✅ 기사 추가: {title}")
 
             link = "https://www.thinkfood.co.kr" + link_tag["href"]
             summary = (summary_tag.get_text(strip=True)[:200] + "...") if summary_tag else ""
@@ -75,14 +50,14 @@ def fetch_articles_with_keyword(keyword=None, max_pages=5, max_articles=3):
             # 기사 본문에서 이미지 가져오기
             img_url = None
             try:
-                res_detail = requests.get(link, headers=HEADERS, timeout=10)
+                res_detail = requests.get(link)
                 soup_detail = BeautifulSoup(res_detail.text, "html.parser")
                 img_tag = soup_detail.select_one("figure img")
                 if img_tag and "src" in img_tag.attrs:
                     src = img_tag["src"]
                     img_url = src if src.startswith("http") else "https://cdn.thinkfood.co.kr" + src
             except:
-                pass
+                pass # 오류 무시하고 이미지 없음으로 처리
 
             results.append({
                 "title": title,
@@ -97,7 +72,7 @@ def fetch_articles_with_keyword(keyword=None, max_pages=5, max_articles=3):
 def fetch_full_article_content(url, max_length=200):  # 기사당 200자로 제한
     """기사 URL에서 전체 본문 내용을 가져오는 함수"""
     try:
-        res = requests.get(url, headers=HEADERS, timeout=10)  # 26/2/3 >> 수정
+        res = requests.get(url, timeout=10)  # timeout 추가
         res.raise_for_status()
         soup = BeautifulSoup(res.text, "html.parser")
         
@@ -105,7 +80,7 @@ def fetch_full_article_content(url, max_length=200):  # 기사당 200자로 제�
         content = ""
         
         # 방법 1: div.user-snip 시도
-        content_div = soup.select_one("article.article-view-body")
+        content_div = soup.select_one("div.user-snip")
         if content_div:
             # 광고나 관련 기사 링크 제거
             for unwanted in content_div.select('.ad, .related, .link-area, .photo-info'):
@@ -314,8 +289,3 @@ def show_news():
             progress_placeholder.empty()
 
             st.warning("미국 관련 기사를 찾을 수 없습니다.")
-
-
-
-
-
