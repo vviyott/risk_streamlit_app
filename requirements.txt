@@ -16,12 +16,12 @@ chromadb>=0.4.0,<2.0.0
 openai>=1.0.0,<2.0.0
 
 # Web scraping and automation
-selenium>=4.0.0,<5.0.0
-webdriver-manager>=4.0.0,<5.0.0
+# selenium>=4.0.0,<5.0.0
+# webdriver-manager>=4.0.0,<5.0.0
 beautifulsoup4>=4.12.0,<5.0.0
 requests>=2.31.0,<3.0.0
 # ✅ 추가: Playwright (GitHub Actions 크롤링용)
-playwright>=1.40.0,<2.0.0
+# playwright>=1.40.0,<2.0.0
 
 # Data processing and analysis
 pandas>=2.0.0,<3.0.0
@@ -54,3 +54,4 @@ pysqlite3-binary>=0.5.0
 # Note: 위의 패키지들이 대부분 커버하므로 playwright만 추가하면 됨
 
 # chromadb, openai, python-dotenv는 이미 위에 포함됨
+
