@@ -12,6 +12,13 @@ from datetime import datetime
 # .env 파일에서 환경변수 로드
 load_dotenv()
 
+# 헤더 설정 추가 (26/2/3)
+HEADERS = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+    'Accept-Language': 'ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7',
+}
+
 def fetch_articles_with_keyword(keyword=None, max_pages=5, max_articles=3):
     """특정 키워드가 포함된 최신 기사들을 크롤링하여 제목, 요약, 날짜, 링크, 이미지 정보를 담아 리스트로 반환하는 함수"""
     base_url = "https://www.thinkfood.co.kr/news/articleList.html?sc_section_code=S1N2&view_type=sm"
@@ -19,7 +26,7 @@ def fetch_articles_with_keyword(keyword=None, max_pages=5, max_articles=3):
 
     for page in range(1, max_pages + 1):
         url = f"{base_url}&page={page}"
-        res = requests.get(url)
+        res = requests.get(url, headers=HEADERS, timeout=10) # 26/2/3 >> 수정
         if res.status_code != 200:
             continue
 
@@ -51,7 +58,7 @@ def fetch_articles_with_keyword(keyword=None, max_pages=5, max_articles=3):
             # 기사 본문에서 이미지 가져오기
             img_url = None
             try:
-                res_detail = requests.get(link)
+                res_detail = requests.get(link, headers=HEADERS, timeout=10)  # 26/2/3 >> 수정
                 soup_detail = BeautifulSoup(res_detail.text, "html.parser")
                 img_tag = soup_detail.select_one("figure img")
                 if img_tag and "src" in img_tag.attrs:
@@ -73,7 +80,7 @@ def fetch_articles_with_keyword(keyword=None, max_pages=5, max_articles=3):
 def fetch_full_article_content(url, max_length=200):  # 기사당 200자로 제한
     """기사 URL에서 전체 본문 내용을 가져오는 함수"""
     try:
-        res = requests.get(url, timeout=10)  # timeout 추가
+        res = requests.get(url, headers=HEADERS, timeout=10)  # 26/2/3 >> 수정
         res.raise_for_status()
         soup = BeautifulSoup(res.text, "html.parser")
         
@@ -290,5 +297,6 @@ def show_news():
             progress_placeholder.empty()
 
             st.warning("미국 관련 기사를 찾을 수 없습니다.")
+
 
 
