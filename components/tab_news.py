@@ -26,30 +26,46 @@ def fetch_articles_with_keyword(keyword=None, max_pages=5, max_articles=3):
 
     for page in range(1, max_pages + 1):
         url = f"{base_url}&page={page}"
-        res = requests.get(url, headers=HEADERS, timeout=10) # 26/2/3 >> 수정
-        if res.status_code != 200:
+        ## 26/2/3
+        # 디버깅 출력 추가
+        print(f"🔍 페이지 {page} 크롤링 시도: {url}")
+        
+        try:
+            res = requests.get(url, headers=HEADERS, timeout=10)
+            print(f"✅ 응답 코드: {res.status_code}")
+            
+            if res.status_code != 200:
+                print(f"❌ 페이지 {page} 실패: status_code={res.status_code}")
+                continue
+        except Exception as e:
+            print(f"❌ 페이지 {page} 크롤링 에러: {e}")
             continue
 
         soup = BeautifulSoup(res.text, "html.parser")
         articles = soup.select(".list-block")
+        
+        print(f"📰 페이지 {page}에서 발견한 기사 수: {len(articles)}")
 
         for article in articles:
             if len(results) >= max_articles:
-                return results  # 기사 3개 모이면 바로 반환
+                print(f"✅ 목표 기사 수({max_articles})에 도달!")
+                return results
 
             title_tag = article.select_one(".list-titles a strong")
             link_tag = article.select_one(".list-titles a")
-            summary_tag = article.select_one(".line-height-3-2x")
-            date_tag = article.select_one(".list-dated")
-
+            
             if not title_tag or not link_tag:
                 continue
 
             title = title_tag.get_text(strip=True)
             
-            # keyword 필터링 (keyword가 주어진 경우에만)
+            # keyword 필터링
             if keyword and keyword not in title:
+                print(f"⏭️ 키워드 '{keyword}' 불일치로 스킵: {title}")
                 continue
+            
+            print(f"✅ 기사 추가: {title}")
+        ## 26/2/3
 
             link = "https://www.thinkfood.co.kr" + link_tag["href"]
             summary = (summary_tag.get_text(strip=True)[:200] + "...") if summary_tag else ""
@@ -297,6 +313,7 @@ def show_news():
             progress_placeholder.empty()
 
             st.warning("미국 관련 기사를 찾을 수 없습니다.")
+
 
 
 
